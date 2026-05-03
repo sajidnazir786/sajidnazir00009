@@ -1,0 +1,312 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سطحة الدمام الخبر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+    body{background:#f3f3f3;color:#111;overflow-x:hidden;width:100%;max-width:100%}
+    html{overflow-x:hidden;width:100%;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    img{width:100%;max-width:100%;height:auto;display:block;object-fit:cover}
+    section{padding:90px 60px}
+    h2{font-size:64px;color:#06245c;line-height:1.3;font-weight:900}
+    h3{margin-bottom:10px}
+    p{line-height:1.9}
+
+    .top-bar{background:linear-gradient(270deg,#2457e6,#183b8c,#2457e6);background-size:600% 600%;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 60px;font-size:18px;animation:topBarFlow 8s ease infinite;box-shadow:0 4px 15px rgba(0,0,0,.2);flex-wrap:wrap}
+    .top-bar div{animation:textGlow 2.5s ease-in-out infinite alternate}
+
+    @keyframes topBarFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes textGlow{0%{text-shadow:0 0 5px rgba(255,255,255,.2)}100%{text-shadow:0 0 15px rgba(255,255,255,.8)}}
+
+    .call-btn,.nav-call,.cta-btn,.contact-info a[href^="tel:"],.contact-info a[href*="wa.me"]{animation:pulseGlow 2s infinite;transition:.3s;border-radius:8px}
+    .call-btn{background:#000;padding:8px 20px;font-weight:bold;position:relative;overflow:hidden}
+    .call-btn:hover,.cta-btn:hover,.nav-call:hover{transform:scale(1.08)}
+    .whatsapp-btn,.contact-info a[href*="wa.me"]{animation:whatsappPulse 1.8s infinite}
+
+    @keyframes pulseGlow{0%{transform:scale(1);box-shadow:0 0 0 rgba(36,87,230,.4)}50%{transform:scale(1.06);box-shadow:0 0 20px rgba(36,87,230,.8)}100%{transform:scale(1);box-shadow:0 0 0 rgba(36,87,230,.4)}}
+    @keyframes whatsappPulse{0%{transform:scale(1);box-shadow:0 0 0 rgba(37,211,102,.4)}50%{transform:scale(1.08);box-shadow:0 0 22px rgba(37,211,102,.9)}100%{transform:scale(1);box-shadow:0 0 0 rgba(37,211,102,.4)}}
+    @keyframes truckZoom{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+    @keyframes statsPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+
+    .main-header{position:sticky;top:10px;z-index:9999;max-width:1500px;margin:12px auto;display:flex;justify-content:space-between;align-items:center;padding:12px 22px;background:#f3f6fb;border-radius:30px;box-shadow:0 6px 22px rgba(44,62,80,.12);width:calc(100% - 24px)}
+    .main-header img{max-width:125px;margin:auto;animation:truckZoom 4s ease-in-out infinite;transition:transform .4s ease, filter .4s ease;cursor:pointer}
+    .main-header img:hover{transform:scale(1.12) translateY(-8px);filter:drop-shadow(0 12px 20px rgba(36,87,230,.35))}
+    .main-header img:active{transform:scale(0.96)}
+
+    .contact-info{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .contact-info div{background:linear-gradient(145deg,#dfe7f2,#cfd9e8);padding:12px 18px;border-radius:22px;box-shadow:6px 6px 16px rgba(0,0,0,.10), -6px -6px 16px rgba(255,255,255,.8);font-weight:800;color:#2457e6;min-width:120px;text-align:center}
+
+    .navbar{display:flex;justify-content:center;align-items:center;flex:1;margin:0 14px;background:#eef3fa;border-radius:45px;padding:6px 18px;box-shadow:inset 4px 4px 12px rgba(0,0,0,.08), inset -4px -4px 12px rgba(255,255,255,.9);overflow:hidden}
+    .navbar ul{display:flex;gap:18px;list-style:none;align-items:center;font-size:15px;font-weight:700;color:#374151;flex-wrap:wrap;justify-content:center}
+    .navbar li{padding:10px 14px;border-radius:18px;transition:.3s;cursor:pointer}
+    .navbar li:hover{background:#dbe7ff;color:#2457e6}
+
+    .hero{position:relative;min-height:850px;background:url('./car.jpg.png') center center/cover no-repeat;overflow:hidden;background-color:#d9d9d9}
+    .hero::before{content:'';position:absolute;left:18%;top:0;width:40%;height:100%;background:rgba(128,0,128,.72);transform:skewX(-18deg)}
+    .hero-content{position:absolute;top:50%;left:8%;transform:translateY(-50%);color:#fff;max-width:800px;z-index:2}
+    .hero-content h1{
+      font-size:58px;
+      font-weight:900;
+      line-height:1.35;
+      text-shadow:0 4px 12px rgba(0,0,0,.45);
+      background:linear-gradient(90deg,#ffffff,#f8dfff,#ffffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:heroTextZoom 3s ease-in-out infinite, heroGlow 2.5s ease-in-out infinite alternate;
+    }
+    .hero-content p{
+      font-size:30px;
+      font-weight:700;
+      margin-bottom:25px;
+      animation:fadeSlideDown 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroTextZoom{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.06)}
+    }
+
+    @keyframes heroGlow{
+      0%{filter:drop-shadow(0 0 8px rgba(255,255,255,.25))}
+      100%{filter:drop-shadow(0 0 22px rgba(255,255,255,.65))}
+    }
+
+    @keyframes fadeSlideDown{
+      0%{transform:translateY(0);opacity:.85}
+      100%{transform:translateY(8px);opacity:1}
+    }
+
+    .cta-group{display:flex;gap:15px;flex-wrap:wrap}
+    .cta-btn{display:inline-block;margin-top:30px;background:#2457e6;color:#fff;padding:18px 40px;font-size:24px;text-align:center}
+    .whatsapp-btn{background:#25D366}
+
+    .about-container,.why-container{display:flex;align-items:center;gap:70px;max-width:1600px;margin:auto}
+    .about-container img,.why-container img,.gallery-grid img{border-radius:8px}
+    .about-content ul{list-style:none;margin-top:30px}
+    .about-content li{margin-bottom:22px;font-size:24px;color:#06245c}
+
+    .video-section{position:relative;background:url('./car.jpg.png') center center/cover no-repeat;min-height:800px;color:#fff;display:flex;align-items:center}
+    .video-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+    .video-content{position:relative;z-index:2;max-width:700px;padding:0 80px}
+    .video-content h2{color:#fff}
+
+    .services-grid,.gallery-grid{display:grid;gap:35px}
+    .services-grid{grid-template-columns:repeat(3,1fr)}
+    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+
+    .gallery-grid img{height:320px;transition:transform .6s ease, box-shadow .6s ease}
+    .gallery-grid img:hover{transform:scale(1.05) translateY(-10px);box-shadow:0 18px 35px rgba(0,0,0,.18)}
+
+    .service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:.4s}
+    .service-card:hover{transform:translateY(-12px) scale(1.03)}
+    .service-card img{height:320px;transition:transform .6s ease}
+    .service-card:hover img{transform:scale(1.08)}
+    .service-card-content{padding:30px}
+
+    .premium-services{grid-template-columns:repeat(3,1fr);gap:40px}
+    .premium-card{background:#e9eef5;border-radius:28px;box-shadow:12px 12px 30px rgba(0,0,0,.08), -12px -12px 30px rgba(255,255,255,.8);overflow:hidden;text-align:center;padding-bottom:25px}
+    .premium-card img{height:220px;object-fit:cover;object-position:center;border-radius:24px;margin:18px;width:calc(100% - 36px);transition:transform .7s ease, box-shadow .7s ease;animation:pulseGlow 3s infinite}
+    .premium-card img:hover{transform:scale(1.08) translateY(-12px);box-shadow:0 20px 35px rgba(36,87,230,.25)}
+    .premium-card h3{font-size:44px;color:#1f2937;margin:25px 0 20px;font-weight:900}
+    .premium-card p{color:#6b7280;font-size:22px;line-height:1.8;margin-bottom:18px}
+
+    .city-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+    .city-tags span{background:#dfe7f2;padding:12px 24px;border-radius:18px;font-weight:800;color:#374151;box-shadow:6px 6px 14px rgba(0,0,0,.08), -6px -6px 14px rgba(255,255,255,.8)}
+
+    .progress-bar{background:#d7e3ff;height:12px;border-radius:10px;margin:15px 0 40px;overflow:hidden}
+    .progress-fill{background:#2457e6;height:100%}
+
+    .stats{background:#050505;color:#fff;padding:60px;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:20px}
+    .stats h3{font-size:62px;animation:statsPulse 2s ease-in-out infinite}
+
+    .section-title{text-align:center;margin-bottom:60px}
+    .subtitle{color:#2457e6;font-size:24px;font-weight:bold;margin-bottom:15px;display:block}
+    iframe{width:100%;border:0;border-radius:12px;min-height:450px;display:block}
+
+    @media(max-width:992px){
+      body{overflow-x:hidden}
+      section{padding:50px 15px}
+      h2{font-size:34px}
+      .top-bar,.main-header,.about-container,.why-container,.contact-info,.navbar{flex-direction:column;text-align:center;padding:15px}
+      .main-header{position:relative;top:0;border-radius:20px}
+      .navbar{width:100%;margin:15px 0}
+      .navbar ul{flex-direction:column;gap:10px;width:100%}
+      .navbar li{width:100%}
+      .services-grid,.gallery-grid,.stats,.premium-services{grid-template-columns:1fr}
+      .hero{min-height:auto;padding:40px 0}
+      .hero::before{left:0;width:100%;transform:none}
+      .hero-content{position:relative;top:auto;left:auto;transform:none;padding:80px 20px 40px;text-align:center;max-width:100%}
+      .hero-content h1{font-size:32px;line-height:1.5}
+      .hero-content p{font-size:20px}
+      .cta-group{justify-content:center}
+      .cta-btn{width:100%;max-width:280px;font-size:20px;padding:14px 25px}
+      .video-content{padding:40px 20px;text-align:center}
+      .gallery-grid img,.service-card img,.premium-card img{height:250px;width:100%;margin:0 0 15px 0;border-radius:18px}
+      .premium-card{padding:15px}
+      .premium-card h3{font-size:30px}
+      .premium-card p{font-size:18px}
+      .stats{padding:40px 20px}
+      .stats h3{font-size:40px}
+      iframe{height:350px;min-height:350px}
+    }
+
+    @media(min-width:768px) and (max-width:1199px){
+      .services-grid,.premium-services{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-content h1{font-size:46px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div>خدمة سحب السيارات والمساعدة على الطريق 24/7</div>
+  <div><a class="call-btn" href="tel:00966550723859">اتصل بنا</a> الرياض، جدة، الدمام، الخبر</div>
+</div>
+
+<header class="main-header">
+  <div><img src="images-removebg-preview.png" alt="logo"></div>
+  <nav class="navbar">
+    <ul>
+      <li style="background:#dbe7ff;color:#2457e6;">الرئيسية</li>
+      <li>المدن</li>
+      <li>نقل من الرياض</li>
+      <li>نقل من جدة</li>
+      <li>نقل من مكة المكرمة</li>
+      <li>من نحن</li>
+      <li>اتصل بنا</li>
+    </ul>
+  </nav>
+  <div class="contact-info">
+    <div>وضع التتبع: معطل</div>
+    <div><a href="tel:00966550723859">055 072 3859</a></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <p>خدمة سريعة وآمنة 24/7</p>
+    <h1>اسرع سطحه في الدمام الرياض جده تبوك ابها خميس مشيط جازان للنقل السيارات VIP</h1>
+    <div class="cta-group">
+      <a href="tel:00966550723859" class="cta-btn">اتصل الآن</a>
+      <a href="https://wa.me/966550723859" class="cta-btn whatsapp-btn">واتساب</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="about-container">
+    <div><img src="images7.jpg" alt="tow"></div>
+    <div class="about-content">
+      <span class="subtitle">عن سطحة الدمام الخبر</span>
+      <h2>الاحترافية والسرعة في سحب ونقل المركبات</h2>
+      <p>نحن ملتزمون بتقديم خدمة سحب وإنقاذ موثوقة وفورية لجميع أنواع السيارات والشاحنات.</p>
+      <ul>
+        <li>أحدث أسطول من السطحات الهيدروليكية</li>
+        <li>خدمة 24/7 في جميع المدن الرئيسية</li>
+        <li>نقل آمن بين المدن</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <span class="subtitle">خدمات النقل بين المدن</span>
+    <h2>مساراتنا الرئيسية الآمنة</h2>
+  </div>
+  <div class="services-grid premium-services">
+    <div class="service-card premium-card">
+      <img src="images8.jpg" alt="سطحة مغلقة">
+      <div class="service-card-content">
+        <p>سطحة مغلقة مجهزة بالكامل لخدمات نقل السيارات</p>
+        <h3>سطحة مغلقة</h3>
+        <p>نوفر سطحه مغلقة بالكامل لضمان نقل آمن وسري للسيارات الثمينة والكلاسيكية.</p>
+        <div class="city-tags"><span>الرياض</span><span>جدة</span><span>الدمام</span></div>
+      </div>
+    </div>
+    <div class="service-card premium-card">
+      <img src="images5.jpg" alt="سطحة هيدروليك">
+      <div class="service-card-content">
+        <p>سطحة هيدروليك مجهزة بالكامل لخدمات نقل السيارات</p>
+        <h3>سطحة هيدروليك</h3>
+        <p>أفضل سطحه هيدروليك بتقنية فل داون لنقل السيارات الرياضية والفاخرة بدون خدوش.</p>
+        <div class="city-tags"><span>الرياض</span><span>جدة</span><span>الدمام</span></div>
+      </div>
+    </div>
+    <div class="service-card premium-card">
+      <img src="car.jpg.png" alt="سطحة عادية">
+      <div class="service-card-content">
+        <p>سطحة عادية مجهزة بالكامل لخدمات نقل السيارات</p>
+        <h3>سطحة عادية</h3>
+        <p>خدمة سحب سيارات سريعة وآمنة لجميع الأعطال والحوادث في جميع المدن الرئيسية.</p>
+        <div class="city-tags"><span>الرياض</span><span>جدة</span><span>الدمام</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title"><span class="subtitle">خدماتنا المتنوعة</span><h2>أنواع عمليات السحب والنقل</h2></div>
+  <div class="gallery-grid">
+    <img src="download.jpg" alt="gallery">
+    <img src="images12.jpg" alt="gallery">
+    <img src="images7.jpg" alt="gallery">
+    <img src="Rumvuxs.jpg" alt="gallery">
+  </div>
+</section>
+
+<section class="video-section">
+  <div class="video-overlay"></div>
+  <div class="video-content">
+    <span class="subtitle" style="color:#fff">لماذا نحن؟</span>
+    <h2>نصل إليك في أسرع وقت ممكن</h2>
+    <p>خدمات سريعة واحترافية على مدار الساعة لجميع الأعطال والحوادث.</p>
+    <div class="cta-group">
+      <a href="tel:00966550723859" class="cta-btn">اتصل</a>
+      <a href="https://wa.me/966550723859" class="cta-btn whatsapp-btn">واتساب</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="why-container">
+    <div><img src="vans.jpg" alt="vans"></div>
+    <div>
+      <span class="subtitle">مقاييس أدائنا</span>
+      <h2>لماذا نعد الأفضل في سحب السيارات؟</h2>
+      <h3>سرعة الاستجابة</h3>
+      <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+      <h3>أمان النقل</h3>
+      <div class="progress-bar"><div class="progress-fill" style="width:98%"></div></div>
+      <h3>تغطية المدن</h3>
+      <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div><h3>5480+</h3><p>عملية ناجحة</p></div>
+  <div><h3>6+</h3><p>مدن رئيسية</p></div>
+  <div><h3>24/7</h3><p>خدمة مستمرة</p></div>
+  <div><h3>98%</h3><p>رضا العملاء</p></div>
+</section>
+
+<section>
+  <div class="section-title">
+    <span class="subtitle">موقعنا</span>
+    <h2>موقع سطحة الرياض والخدمات</h2>
+  </div>
+  <div style="width:100%;max-width:100%;overflow:hidden;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.12);">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3620.992041518639!2d46.81046647536998!3d24.829945777949252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQ5JzQ3LjgiTiA0NsKwNDgnNDcuMCJF!5e0!3m2!1sen!2s!4v1777664553995!5m2!1sen!2s" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:450px;border:0;display:block;"></iframe>
+  </div>
+</section>
+
+</body>
+</html>
+```
